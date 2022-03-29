@@ -3,7 +3,9 @@ import { useJsApiLoader } from "@react-google-maps/api";
 import Bars from "./components/Bars";
 import UserInputForm from "./components/UserInputForm";
 import MapComponent from "./components/MapComponent";
-import Header from "./components/Header";
+import Header from "./components/Header"
+import Footer from "./components/Footer/Footer";
+
 import "./App.css";
 import sendUserRequest from "./services/sendUserRequest";
 import "./loadingAnimation.css";
@@ -47,7 +49,7 @@ function App() {
               <>
                 <MapComponent bars={bars} location={userLocation} zoom={13} />
                 {bars.length > 0 ? (
-                  <Bars bars={bars} />
+                  <Bars bars={bars} location={userLocation}/>
                 ) : (
                   <p>No bars found...</p>
                 )}
@@ -56,11 +58,11 @@ function App() {
           </div>
         ) : (
           <>
-            <h2>Please enter your location</h2>
           </>
         )}
       </div>
       }
+      <Footer />
     </div>
   );
 }
